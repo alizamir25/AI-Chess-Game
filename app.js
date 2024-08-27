@@ -10,20 +10,20 @@ var onDragStart=function(source, piece, position, orientation){
         return false;
     }
 };
-var makeBestMove = function () {
-    var bestMove = getBestMove(game);
+var makeBestMove=function(){
+    var bestMove=getBestMove(game);
     game.ugly_move(bestMove);
     board.position(game.fen());
     renderMoveHistory(game.history());
-    if (game.game_over()) {
+    if (game.game_over()){
         alert('Game over');
     }
 };
-var getBestMove = function (game) {
-    if (game.game_over()) {
+var getBestMove=function(game){
+    if (game.game_over()){
         alert('Game over');
     }
-    var bestMove = calculateBestMove(game);
+    var bestMove=calculateBestMove(game);
     return bestMove;
 };
 var renderMoveHistory = function (moves) {
