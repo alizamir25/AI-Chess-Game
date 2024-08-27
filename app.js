@@ -34,30 +34,30 @@ var renderMoveHistory=function(moves){
     }
     historyElement.scrollTop(historyElement[0].scrollHeight);
 };
-var onDrop = function (source, target) {
-    var move = game.move({
-        from: source,
-        to: target,
-        promotion: 'q'
+var onDrop=function(source, target){
+    var move=game.move({
+        from:source,
+        to:target,
+        promotion:'q'
     });
     removeGreySquares();
-    if (move === null) {
+    if(move===null){
         return 'snapback';
     }
     renderMoveHistory(game.history());
     window.setTimeout(makeBestMove, 250);
 };
-var onSnapEnd = function () {
+var onSnapEnd=function (){
     board.position(game.fen());
 };
-var onMouseoverSquare = function(square, piece) {
-    var moves = game.moves({
-        square: square,
-        verbose: true
+var onMouseoverSquare=function(square, piece){
+    var moves=game.moves({
+        square:square,
+        verbose:true
     });
-    if (moves.length === 0) return;
+    if(moves.length===0)return;
     greySquare(square);
-    for (var i = 0; i < moves.length; i++) {
+    for (var i=0;i<moves.length;i++){
         greySquare(moves[i].to);
     }
 };
