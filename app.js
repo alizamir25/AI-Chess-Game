@@ -1,13 +1,12 @@
 var board,
-    game = new Chess();
-var calculateBestMove =function(game) {
-    var newGameMoves = game.ugly_moves();
-    return newGameMoves[Math.floor(Math.random() * newGameMoves.length)];
-
+    game=new Chess();
+var calculateBestMove=function(game){
+    var newGameMoves=game.ugly_moves();
+    return newGameMoves[Math.floor(Math.random()*newGameMoves.length)];
 };
-var onDragStart = function (source, piece, position, orientation) {
-    if (game.in_checkmate() === true || game.in_draw() === true ||
-        piece.search(/^b/) !== -1) {
+var onDragStart=function(source, piece, position, orientation){
+    if (game.in_checkmate()===true||game.in_draw()===true||
+        piece.search(/^b/)!==-1){
         return false;
     }
 };
